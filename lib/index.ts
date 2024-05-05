@@ -11,7 +11,7 @@ export interface Return {
   theme: Theme | null
   setTheme: (theme: Theme) => void
   toggle: VoidFunction
-  subscribe: (cb: SubScribeFunction) => void
+  subscribe: (cb: SubScribeFunction) => () => void
 }
 
 export const createDarkToggle = (params: Params): Return => {

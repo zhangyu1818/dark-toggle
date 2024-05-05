@@ -14,7 +14,7 @@ const serverDefault: Return = {
   theme: null,
   toggle: () => {},
   setTheme: () => {},
-  subscribe: () => {},
+  subscribe: () => () => {},
 }
 
 const isServer = typeof window === 'undefined'
