@@ -1,13 +1,20 @@
 import { createDarkToggle } from '../lib'
 
-const toggle = createDarkToggle('theme', (dark) => {
+const darkToggle = createDarkToggle({
+  key: 'theme',
+})
+
+darkToggle.subscribe((dark, theme) => {
   if (dark) {
     document.documentElement.classList.add('dark')
+    document.documentElement.classList.remove('light')
   } else {
+    document.documentElement.classList.add('light')
     document.documentElement.classList.remove('dark')
   }
+  document.documentElement.setAttribute('data-theme', theme ?? '')
 })
 
 const btn = document.querySelector('button')!
 
-btn.onclick = toggle
+btn.onclick = darkToggle.toggle
